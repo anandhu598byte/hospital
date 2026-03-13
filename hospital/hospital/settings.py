@@ -11,6 +11,9 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 import os
 from pathlib import Path
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -124,4 +127,4 @@ MEDIA_ROOT = BASE_DIR / 'uploads'
 MEDIA_URL = '/media/'
 
 STRIPE_PUBLISHABLE_KEY = "pk_test_51TA3TLPhFrYGhByevzdKY4IcF4m6VSsWddHUAywoOENH4GHSZrJYbmPeyRLeznK9f1UYqZVFcmgHWRxBF6S9eBKd00OhFwtlBV"
-STRIPE_SECRET_KEY = "sk_test_51TA3TLPhFrYGhByee1AvC2XH7QAc2OTBC2uKhoZfAj3YbVeFqpyN7QTkZheSVzde7vDK9mfqo4aZT34HXxEG1acX00yj2DYaS2"
+STRIPE_SECRET_KEY = os.environ.get("STRIPE_SECRET_KEY")
